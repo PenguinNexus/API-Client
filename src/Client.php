@@ -3,6 +3,7 @@
 namespace TruckersMP\APIClient;
 
 use TruckersMP\APIClient\Requests\BanRequest;
+use TruckersMP\APIClient\Requests\Company\EventRequest;
 use TruckersMP\APIClient\Requests\CompanyIndexRequest;
 use TruckersMP\APIClient\Requests\CompanyRequest;
 use TruckersMP\APIClient\Requests\GameTimeRequest;
@@ -55,6 +56,19 @@ class Client
     public function bans(int $id): BanRequest
     {
         return new BanRequest($id);
+    }
+
+    /**
+     * Get the information for a specfic event created by a VTC.
+     *
+     * https://stats.truckersmp.com/api#vtc_events_info
+     *
+     * @param  int  $id
+     * @return EventRequest
+     */
+    public function event(int $id): EventRequest
+    {
+        return new EventRequest($id);
     }
 
     /**
